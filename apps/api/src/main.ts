@@ -71,11 +71,13 @@ async function bootstrap() {
     SwaggerModule.setup('docs', app, document);
   }
 
-  const port = process.env.PORT || 3001;
-  await app.listen(port);
+  const port = process.env.PORT ? Number(process.env.PORT) : 3333;
+  await app.listen(port, '0.0.0.0');
 
-  logger.info(`🚀 OficinaOS API running on http://localhost:${port}`);
-  logger.info(`📚 Swagger docs: http://localhost:${port}/docs`);
+  logger.info(`OficinaOS API running on http://0.0.0.0:${port}`);
+  if (process.env.NODE_ENV !== 'production') {
+    logger.info(`Swagger docs: http://localhost:${port}/docs`);
+  }
 }
 
 bootstrap();

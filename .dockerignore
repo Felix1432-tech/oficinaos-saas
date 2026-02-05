@@ -1,0 +1,52 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build outputs (will be built inside container)
+**/dist
+**/.turbo
+
+# Git
+.git
+.gitignore
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Env files (will be injected by Coolify)
+.env
+.env.*
+!.env.example
+
+# Docs and non-essential
+docs
+*.md
+!README.md
+
+# Tests
+**/*.spec.ts
+**/*.test.ts
+**/test
+**/tests
+coverage
+
+# AIOS (not needed in production)
+.aios
+.aios-core
+.claude
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs
+
+# Docker (avoid recursive copy)
+Dockerfile*
+docker-compose*
+docker/
