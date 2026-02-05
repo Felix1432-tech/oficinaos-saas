@@ -15,19 +15,22 @@
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "prisma generate && tsc",
     "dev": "tsc --watch",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
     "db:push": "prisma db push",
     "db:seed": "tsx src/seed.ts",
     "db:studio": "prisma studio",
     "clean": "rm -rf dist node_modules .turbo"
   },
   "dependencies": {
-    "@prisma/client": "^5.10.0"
+    "@prisma/client": "^5.10.0",
+    "bcryptjs": "^2.4.3"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "prisma": "^5.10.0",
     "tsx": "^4.7.0",
     "typescript": "^5.3.3"
